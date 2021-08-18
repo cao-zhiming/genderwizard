@@ -94,7 +94,7 @@
         </section>
         <section>
           <!--.wrap = container (width: 90%) -->
-          <div class="wrap">
+          <div class="wrap size-50">
             <div class="grid vertical-align">
               <div class="column">
                 <h2>哦我的老天，真糟糕。由于上一次魔法使用的能量过大，现在魔力已经寥寥无几。</h2>
@@ -117,7 +117,7 @@
               <input type="text" id="realname" placeholder="请输入你的法定中文完整姓名">
               <input type="submit" onsubmit="getname()" onclick="getname()" value="确认">
               <script type="text/javascript">
-              
+              var username=document.getElementById("realname").value;
 function addCookie(objName, objValue, objHours) {
     var str = objName + "=" + escape(objValue); 
     if (objHours > 0) {
@@ -128,7 +128,7 @@ function addCookie(objName, objValue, objHours) {
     }
     document.cookie = str;
 }
-                function getCookie(objName) {
+function getCookie(objName) {
     var arrStr = document.cookie.split("; ");
     for (var i = 0;i<arrStr.length;i++){ 
         var temp = arrStr[i].split("=");
@@ -137,11 +137,13 @@ function addCookie(objName, objValue, objHours) {
     return "";
 }
 function getname(){
-                var username=document.getElementById("realname").value;
                 addCookie("username",username,1);
+                spanyourname();
                 window.location.href="#slide=5";
               }
-                
+function spanyourname() {
+    document.getElementById("yourname").innerHTML = username;
+};
               
               </script>
             </form>
@@ -154,82 +156,27 @@ function getname(){
           <div class="wrap">
             <div class="grid vertical-align">
               <div class="column">
-                <h4>
-                  <svg class="fa-life-ring">
-                    <use xlink:href="#fa-life-ring"></use>
-                  </svg>
-                  <strong>Guides</strong>
-                </h4>
-                <p>If you need help, here's just three tutorials. Just a basic knowledge of HTML is required:</p>
-                <ul class="description">
-                  <li><a href="demos/components.html" title="WebSlides Components">WebSlides Components</a>.</li>
-                  <li><a href="demos/classes.html" title="WebSlides Classes">WebSlides Classes</a>.</li>
-                  <li><a href="demos/media.html" title="WebSlides Media">WebSlides Media: images, videos...</a></li>
-                </ul>
+               <p class="text-intro">好的，<span id="yourname"></span>，很高兴认识你。<br>接下来，我们乘坐飞天扫帚（如果你喜欢幻影移形就使用那种方式）来到了迪士尼乐园。那么，你一定不会错过的游艺项目是？</p>
               </div>
               <div class="column">
-                <figure><img class="aligncenter" src="static/images/setup.png" alt="WebSlides Files"></figure>
-              </div>
-              <div class="column">
-                <h4>
-                  <svg class="fa-cubes">
-                    <use xlink:href="#fa-cubes"></use>
-                  </svg>
-                  <strong>Built to expand</strong>
-                </h4>
-                <p>The best way to <strong>inspire with your content</strong> is to connect on a personal level:</p>
-                <ul class="description">
-                  <li>Background images: <a href="http://unsplash.com">Unsplash</a>.</li>
-                  <li>CSS animations: <a href="https://daneden.github.io/animate.css/">Animate.css</a>.</li>
-                  <li>Longforms: <a href="http://michalsnik.github.io/aos/"> Animate on scroll</a>.</li>
-                </ul>
+                <form>
+                  <input type="radio" name="xzmm" value="xzmm" /> 旋转木马
+                  <input type="radio" name="gsc" value="gsc" /> 疯狂过山车
+                  <input type="submit" onclick="playchoice()" value="确认" />
+                </form>
+                <script type="text/javascript">
+                  function playchoice(){
+                                  var plc=document.getElementById("realname").value;
+                                  addCookie("playchoice",plc,1);
+                                  window.location.href="#slide=6";
+                                }      
+                                </script>
               </div>
             </div>
             <!--end .grid -->
           </div>
         </section>
-        <section class="aligncenter">
-          <!-- .wrap = container (width: 90%) -->
-          <div class="wrap">
-            <h2><strong>Ready to Start?</strong> </h2>
-            <p class="text-intro">Create your own presentation instantly. <br>120+ premium slides ready to use.</p>
-            <p>
-              <a href="https://webslides.tv/webslides-latest.zip" class="button" title="Download WebSlides">
-                <svg class="fa-cloud-download">
-                  <use xlink:href="#fa-cloud-download"></use>
-                </svg>
-                Free Download
-              </a>
-              <span class="try">
-                <a href="https://www.paypal.me/jlantunez/8" title="Thanks :)">
-                  <svg class="fa-paypal">
-                    <use xlink:href="#fa-paypal"></use>
-                  </svg>
-                  Pay what you want.
-                </a>
-              </span>
-            </p>
-          </div>
-          <!-- .end .wrap -->
-        </section>
-        <section class="slide-bottom">
-          <div class="wrap">
-            <div class="content-right text-serif">
-              <h2>
-                <strong>Thanks.</strong>
-                <a target="_blank" title="Share on Twitter" href="https://twitter.com/intent/tweet?text=Finally,%20everything%20you%20need%20to%20make%20HTML%20presentations%20in%20a%20fast/beautiful%20way.%20@WebSlides%20=%20Good%20karma%20&mdash;%20https://webslides.tv">
-                  <svg class="fa-twitter">
-                    <use xlink:href="#fa-twitter"></use>
-                  </svg>
-                </a>
-              </h2>
-              <p>People share content that makes them feel inspired. WebSlides is a very effective way to engage young audiences, customers, and teams.</p> 
-              <p>Best,<br> <a href="https://twitter.com/jlantunez">@jlantunez</a>, <a href="https://twitter.com/belelros">@belelros</a>, and <a href="https://twitter.com/luissacristan">@luissacristan</a>.</p>
-            </div>
-            <!-- .end .content-right -->
-          </div>
-          <!-- .end .wrap -->
-        </section>
+        
 
       </article>
       <!-- end article -->
@@ -237,12 +184,7 @@ function getname(){
     <!-- end main -->
 
 
-<!-- footer
-     <footer role="contentinfo">
-      <div class="wrap">
-        <p>Gender Wizard，使用MIT License开源。感谢你的使用。</p>
-      </div>
-    </footer> -->
+
 
     <!-- Required -->
     <script src="static/js/webslides.js"></script>
